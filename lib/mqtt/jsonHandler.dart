@@ -7,6 +7,8 @@ class JsonData {
   String mainStatus;
   String batteryStatus;
   String inverterStatus;
+  bool critical;
+  bool nonCritical;
   JsonData(
       {this.inputVoltage,
       this.outputVoltage,
@@ -15,7 +17,9 @@ class JsonData {
       this.loadPercentage,
       this.mainStatus,
       this.solarStatus,
-      this.inverterStatus});
+      this.inverterStatus,
+      this.critical,
+      this.nonCritical});
   factory JsonData.fromJson(Map<String, dynamic> parsedJson) {
     return JsonData(
         inputVoltage: parsedJson["input_voltage"],
@@ -25,6 +29,8 @@ class JsonData {
         solarStatus: parsedJson["solarStatus"],
         mainStatus: parsedJson["mainStatus"],
         batteryStatus: parsedJson["batteryStatus"],
-        inverterStatus: parsedJson["inverterStatus"]);
+        inverterStatus: parsedJson["inverterStatus"],
+        critical: parsedJson["critical"],
+        nonCritical: parsedJson["non-critical"]);
   }
 }
